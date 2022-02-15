@@ -7,17 +7,18 @@ articleOne.appendChild(sectionOne);
 
 const clearButton = document.createElement('button');
 clearButton.id = 'clear-board';
-clearButton.innerHTML = "Limpar";
+clearButton.innerHTML = 'Limpar';
 sectionOne.appendChild(clearButton);
-
 
 clearButton.addEventListener('click', clearButtonFunction);
 
 function clearButtonFunction(){
-    for (let i = 0; i < pixelSelected.length; i += 1){
-        pixelSelected[i].style.backgroundColor = 'white';
-    }
+  for (let i = 0; i < pixelSelected.length; i += 1) {
+      pixelSelected[i].style.backgroundColor = 'white';
+  }
 }
+
+clearButtonFunction
 
 let divList = [1, 2, 3, 4, 5];
 let pixelDivList = [1, 2, 3, 4, 5];

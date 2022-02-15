@@ -4,7 +4,16 @@
 
 body {
   text-align: center;
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-family: 'Times New Roman', Times, serif;
+  background-image: url(./705837.png);
+  margin-top: 10%;
+}
+/* Imagem de url retirada do site: https://wall.alphacoders.com/by_sub_category.php?id=209352&name=Pixel+Art+Wallpapers */
+/* Créditos da imagem de background para RythmicSpark */
+
+h1 {
+  color: blue;
+  font-weight: bold;
 }
 
 .color {
@@ -40,8 +49,8 @@ body {
 }
 
 #clear-board {
-    margin: 20px;
-    background-color: blanchedalmond;
-    border-radius: 10px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  margin: 20px;
+  background-color: blanchedalmond;
+  border-radius: 10px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
