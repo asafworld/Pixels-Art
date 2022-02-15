@@ -1,0 +1,38 @@
+/* #color-palette{
+
+} */
+
+body {
+    text-align: center;
+}
+
+.color {
+    border: 1px solid black;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}
+
+.black {
+    background-color: black;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.pixel {
+    border: 1px solid black;
+    display: inline-block;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+}
