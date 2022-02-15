@@ -5,15 +5,29 @@ const sectionOne = document.createElement('section');
 sectionOne.id = 'pixels-board';
 articleOne.appendChild(sectionOne);
 
+const clearButton = document.createElement('button');
+clearButton.id = 'clear-board';
+clearButton.innerHTML = "Limpar";
+sectionOne.appendChild(clearButton);
+
+
+clearButton.addEventListener('click', clearButtonFunction);
+
+function clearButtonFunction(){
+    for (let i = 0; i < pixelSelected.length; i += 1){
+        pixelSelected[i].style.backgroundColor = 'white';
+    }
+}
+
 let divList = [1, 2, 3, 4, 5];
 let pixelDivList = [1, 2, 3, 4, 5];
 
 function createPixelsBlock(){
     for (let i = 0; i < divList.length; i+=1){
-        let div = document.createElement('div');
+        const div = document.createElement('div');
         div.id = 'pixel-board';
         sectionOne.appendChild(div);
-        for (let index2 =0; index2<pixelDivList.length; index2+=1){
+        for (let index2 = 0; index2 < pixelDivList.length; index2 += 1){
             let insideDivs = document.createElement('div');
             insideDivs.className = 'pixel';
             div.appendChild(insideDivs);
@@ -31,7 +45,7 @@ let blue = document.querySelector('.blue');
 function addRemoveSelected(event){
     let classeSelect = document.querySelector('.selected');
     classeSelect.classList.remove('selected');
-    event.target.classList.add('selected')
+    event.target.classList.add('selected');
 }
 
 black.addEventListener('click', addRemoveSelected);
@@ -44,7 +58,8 @@ let classSelected = document.getElementsByClassName('selected');
 function changePixelColor(){
     for (let i = 0; i < pixelSelected.length; i += 1){
         pixelSelected[i].addEventListener('click', function(event){
-            let selectedBackgroundColor = window.getComputedStyle(classSelected[0]);
+            const selectedBackgroundColor = window.getComputedStyle(classSelected[0]);
+            console.log(event.target.style.backgroundColor);
             if (!event.target.className.backgroundColor === 'white'){
                 event.target.style.backgroundColor = 'white';
             } else {
@@ -54,3 +69,5 @@ function changePixelColor(){
     }
 }
 changePixelColor();
+
+
