@@ -1,4 +1,5 @@
 const main = document.getElementById('main');
+const palette = document.getElementById('color-palette');
 const articleOne = document.createElement('article');
 main.appendChild(articleOne);
 // 
@@ -17,21 +18,25 @@ const pixelSelected = document.getElementsByClassName('pixel');
 const classSelected = document.getElementsByClassName('selected');
 // 
 
-let black = document.querySelector('.black');
-let yellow = document.querySelector('.yellow');
-let green = document.querySelector('.green');
-let blue = document.querySelector('.blue');
+// let black = document.querySelector('.black');
+// black.style.backgroundColor = 'black';
+// let yellow = document.querySelector('.yellow');
+// yellow.style.backgroundColor = 'yellow';
+// let green = document.querySelector('.green');
+// green.style.backgroundColor = 'green';
+// let blue = document.querySelector('.blue');
+// blue.style.backgroundColor = 'blue';
 
 function addRemoveSelected(event){
     let classeSelect = document.querySelector('.selected');
     classeSelect.classList.remove('selected');
     event.target.classList.add('selected');
 }
-
-black.addEventListener('click', addRemoveSelected);
-yellow.addEventListener('click', addRemoveSelected);
-green.addEventListener('click', addRemoveSelected);
-blue.addEventListener('click', addRemoveSelected);
+palette.addEventListener('click', addRemoveSelected);
+// black.addEventListener('click', addRemoveSelected);
+// yellow.addEventListener('click', addRemoveSelected);
+// green.addEventListener('click', addRemoveSelected);
+// blue.addEventListener('click', addRemoveSelected);
 // 
 
 function createPixelsBlock(tamanho){
@@ -109,3 +114,44 @@ function clearButtonFunction(){
 
 clearButtonFunction
 // 
+
+// window.onload = function generateColorsCode(){  
+//   let randomColorOne = 0xFFFFFF;
+//   let randomNumberOne = Math.floor(Math.random() * randomColorOne);
+//   randomNumberOne = randomNumberOne.toString(16);
+//   let colorOne = randomNumberOne.padStart(6, 0);
+//   console.log(colorOne);
+//   yellow.style.backgroundColor = '#' + colorOne;
+
+//   let randomColorTwo = 0xFFFFFF;
+//   let randomNumberTwo = Math.floor(Math.random() * randomColorOne);
+//   randomNumberTwo = randomNumberTwo.toString(16);
+//   let colorTwo = randomNumberTwo.padStart(6, 0);
+//   green.style.backgroundColor = '#' + colorTwo;
+
+//   let randomColorThree = 0xFFFFFF;
+//   let randomNumberThree = Math.floor(Math.random() * randomColorOne);
+//   randomNumberThree = randomNumberThree.toString(16);
+//   let colorThree = randomNumberThree.padStart(6, 0);
+//   blue.style.backgroundColor = '#' + colorThree;
+// }
+
+window.onload = function generateColorsCode(){
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  const black = document.createElement('div');
+  black.className = 'color selected';
+  black.style.backgroundColor = `rgb(${r},${g},${b})`;
+  palette.appendChild(black);
+  for (let i = 0; i < 3; i +=1){
+    r = Math.floor(Math.random() * 255);
+    g = Math.floor(Math.random() * 255);
+    b = Math.floor(Math.random() * 255);
+    const color = document.createElement('div');
+    color.className = 'color';
+    color.style.backgroundColor = `rgb(${r},${g},${b})`;
+    palette.appendChild(color);
+  }
+}
+

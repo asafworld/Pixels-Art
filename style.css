@@ -24,22 +24,6 @@ h1 {
   height: 50px;
 }
 
-.black {
-  background-color: black;
-}
-
-.yellow {
-  background-color: yellow;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.green {
-  background-color: green;
-}
-
 .pixel {
   border: 1px solid black;
   display: inline-block;
