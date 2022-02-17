@@ -2,8 +2,36 @@ const main = document.getElementById('main');
 const articleOne = document.createElement('article');
 main.appendChild(articleOne);
 const sectionOne = document.createElement('section');
-sectionOne.id = 'pixels-board';
+sectionOne.id = 'delete-and-vqv';
 articleOne.appendChild(sectionOne);
+const sectionTwo = document.createElement('section');
+sectionTwo.id = 'pixels-board';
+articleOne.appendChild(sectionTwo);
+
+const input = document.createElement('input');
+input.id = 'board-size';
+input.type = 'number';
+input.min = 1;
+sectionOne.appendChild(input);
+const vqvButton = document.createElement('button');
+vqvButton.id = 'generate-board';
+vqvButton.innerHTML = 'VQV';
+sectionOne.appendChild(vqvButton);
+
+
+function vqvButtonFunction(){
+  vqvButton.addEventListener('click', function(event){
+    if (input.value <= 0) {
+      window.alert('Board inválido!');
+    } else {
+      let pixelsBoard = document.getElementById('pixels-board');
+      pixelsBoard.innerHTML = '';
+      createPixelsBlock(input.value);
+    }   
+  })       
+}
+vqvButtonFunction();
+
 
 const clearButton = document.createElement('button');
 clearButton.id = 'clear-board';
@@ -20,22 +48,22 @@ function clearButtonFunction(){
 
 clearButtonFunction
 
-let divList = [1, 2, 3, 4, 5];
-let pixelDivList = [1, 2, 3, 4, 5];
 
-function createPixelsBlock(){
-    for (let i = 0; i < divList.length; i+=1){
+
+function createPixelsBlock(tamanho){
+    for (let i = 0; i < tamanho; i+=1){
         const div = document.createElement('div');
         div.id = 'pixel-board';
-        sectionOne.appendChild(div);
-        for (let index2 = 0; index2 < pixelDivList.length; index2 += 1){
+        sectionTwo.appendChild(div);
+        for (let index2 = 0; index2 < tamanho; index2 += 1){
             let insideDivs = document.createElement('div');
             insideDivs.className = 'pixel';
+            insideDivs.addEventListener('click', changePixelColor);
             div.appendChild(insideDivs);
         }   
     }
 }
-createPixelsBlock();
+createPixelsBlock(5);
 
 
 let black = document.querySelector('.black');
@@ -56,19 +84,16 @@ blue.addEventListener('click', addRemoveSelected);
 
 let pixelSelected = document.getElementsByClassName('pixel');
 let classSelected = document.getElementsByClassName('selected');
-function changePixelColor(){
-    for (let i = 0; i < pixelSelected.length; i += 1){
-        pixelSelected[i].addEventListener('click', function(event){
-            const selectedBackgroundColor = window.getComputedStyle(classSelected[0]);
-            console.log(event.target.style.backgroundColor);
-            if (!event.target.className.backgroundColor === 'white'){
-                event.target.style.backgroundColor = 'white';
-            } else {
-                event.target.style.backgroundColor = selectedBackgroundColor.getPropertyValue('background-color');
-            }
-        })
+
+function changePixelColor(event){
+    const selectedBackgroundColor = window.getComputedStyle(classSelected[0]);
+    if (!event.target.className.backgroundColor === 'white'){
+        event.target.style.backgroundColor = 'white';
+    } else {
+        event.target.style.backgroundColor = selectedBackgroundColor.getPropertyValue('background-color');
     }
 }
-changePixelColor();
+
+
 
 
