@@ -2,21 +2,21 @@ const main = document.getElementById('main');
 const palette = document.getElementById('color-palette');
 const articleOne = document.createElement('article');
 main.appendChild(articleOne);
-// 
+//
 
 const sectionOne = document.createElement('section');
 sectionOne.id = 'delete-and-vqv';
 articleOne.appendChild(sectionOne);
-// 
+//
 
 const sectionTwo = document.createElement('section');
 sectionTwo.id = 'pixels-board';
 articleOne.appendChild(sectionTwo);
-// 
+//
 
 const pixelSelected = document.getElementsByClassName('pixel');
 const classSelected = document.getElementsByClassName('selected');
-// 
+//
 
 // let black = document.querySelector('.black');
 // black.style.backgroundColor = 'black';
